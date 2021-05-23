@@ -1,0 +1,549 @@
+09:11 PM | 4th May, 2021:
+-------------------------
+I've been going on a wild goose chase for the better part of the day trying to get a hold of the element to enter the company symbol into from the webpage www.nepsealpha.com/trading/chart. I was trying to drill down to the correct <input> element all this while and Selenium just wasn't finding it: NoSuchElementException all the way. I tried locating by Id,Class,CssSelector,XPath, what not... (I originally identified the element using Google Chrome's developer tools' Inspect Element.) I tried searching the element using JavaScript in the devtools console and it apparently found the element. Even tried using JavaScriptExecutor in Selenium because of this. Later, because I thought the site uses reactJS, I reckoned it must have something to do with the virtual DOM or some stuff like that for the element search to not work. Also, something funny I discovered was that after Inspect Element was performed on the page, the XPath search did work. I still don't know why that is so.
+I only realise now that I have been going insane inside a freaking iframe all along. Should've been serious about the answer provided by DebanjanB:
+https://stackoverflow.com/questions/48471321/nosuchelementexception-selenium-unable-to-locate-element
+and collapsed the <div>s and zoomed out further. "Selenium element search methods don't work inside <iframe> elements". An overview of the page source was what I needed. The source of the site at this point looks pretty clean and very readable which has to be the polar opposite of the source inside the <iframe> element. There's so many nested <div>s there.
+Once I did that, the overview of the page's source(given at the end of this text file) revealed that all I needed to do was get the <input> element with the id attribute equal to "selectedsymbol", change the element's Value to the appropriate company symbol (API, NICA, ADBL, etc) and call the javascript function nepseAlphaTradingChart(). And all of this can be done using the JavaScriptExecutor interface. Everything works as intended.
+
+Good reference(though I ended up not using this method since I settled with executing JavaScript code instead): https://sqa.stackexchange.com/questions/38469/c-element-not-interactable-error
+
+
+01:40 PM | 5th May, 2021:
+-------------------------
+While the above works fine to load any required company's chart, the indicators selected by the user is not maintained between loads. That is, say, if you have a Moving Average indicator that you need to screen out the best stocks, the moving average curve is cleared once nepseAlphaTradingChart() function is called. So, it appears that the function is only called once upon the first load of the page. I dug around the javascript of the webpage for ~4 hours yesterday night to no avail. I slept at 1AM yesterday. And I continued searching for something to invoke the supposed indicator graphing function that had to be there (there were a lot of ready-made graphing libraries in there, TradingView Widgets, HighStock charts, etc.) but I couldn't find anything of value. Then, I thought maybe I had no other option than to use the raw numbers obtained as JSON data (used by the site) to plot the charts from https://www.nepsealpha.com/trading/1/history?symbol=API&resolution=1D&from=1586006483&to=1620134543&currencyCode=NRS (replace the 'symbol', 'from' and 'to' parameters to your will) (BTW this link was not at all hard to find, it's a 'fetch' or 'XHR' request made by the javascript running in the page - easily discovered via the Google Chrome Developer Tools and easily testable via PostMan - just use the '__cfduid' and the 'laravel_session' cookie sent by the server upon first request to https://www.nepsealpha.com/trading/1/symbols?symbol=API and preserve the '__cfduid' and update the 'laravel_session' cookie in all subsequent requests (Google Chrome's Copy request as cURL(bash) was very helpful in figuring this out)).
+But I was determined that that was going to be my last resort since C# isn't the best language to do graphing, unlike JavaScript. Sure, it would be a lot more efficient to do it natively in C# instead of using Selenium WebDriver for it, but it's a lot of work. So, I soldiered on.
+Then, I scrapped the idea of calling the nepseAlphaTradingChart() function of the webpage altogether. I went back to doing what Selenium is supposed to do - simulate a real user doing stuff on the webpage. So, I followed the link about <iframe> elements from yesterday and with a little help from https://www.lambdatest.com/blog/handling-frames-and-iframes-selenium-c-sharp/ and https://www.guru99.com/handling-iframes-selenium.html regarding the .SwitchTo().Frame() method, I was able to simulate writing a company symbol into the input element and pressing Enter. And it worked! All I needed to do was to switch the webdriver's operating Frame to that of the first <iframe> of the page and select the required input element using the XPath given by Google Chrome's Developer Tools(select the element, Copy  -> As XPath) and then on this element, perform a .Click(), .SendKeys() the company symbol and then finish with another .SendKeys(Keys.Return).
+Voila! It's done. I can now select any symbol from a listview in my windows form application and make the chart on the webpage update accordingly, and once I set my desired indicator on, it doesn't go away between loading different company symbols. Yay!
+All that's left now is to spruce it up. That's what takes the most time.
+
+
+12:14 AM | 6th May, 2021:
+-------------------------
+https://www.nepalipaisa.com/Listed-Companies.aspx -> contains all listed companies with their symbols and their full names and their sectors.
+
+
+01:19 PM | 6th May, 2021:
+-------------------------
+https://stackoverflow.com/questions/7630555/how-to-pass-list-of-class-to-list-of-interface
+
+
+02:22 PM | 6th May, 2021:
+-------------------------
+Quick tip: if you want to do HTML parsing to get content(s) between your desired tags, you don't need to do bang your head working with regex. Simply use Google's Developer Tools to acces the required element's .innerText property. No HTML tags will be returned! They're replace with tabs or some other separation characters! That's so much easier than figuring out the right regex. I found this out because I've been fiddling around with regex for a couple hours now to extract the company symbols, their full names and their sectors from the aforementioned webpage.
+
+06:43 PM | 6th May, 2021:
+------------------------
+https://stackoverflow.com/questions/3314140/how-to-read-embedded-resource-text-file?rq=1
+
+11:45 PM | 7th May, 2021:
+-------------------------
+HTTP requests via HttpClient can be asked to respect cookies sent by the server. ref:https://stackoverflow.com/questions/53906224/cant-get-any-cookies-with-c-sharp-httpclient
+Use HttpClientHandler along with CookieContainer along with HttpClientHandler.UseCookies property set to true. This will relay back the cookies sent by the server in every subsequent request.
+
+08:31 PM | 7th May, 2021:
+-------------------------
+https://stackoverflow.com/questions/8447/what-does-the-flags-enum-attribute-mean-in-c
+Regarding flag enums in C#. Interesting stuff.
+
+10:41 PM | 7th May, 2021:
+-------------------------
+NEVER let other classes have access to your Form's controls. It's an outward spiralling circle. Things get out of hand pretty quick. If you have to use external classes, let them return results back to your Form and have your Form take action on it.
+Also, don't overdo Interfaces. Especially avoid using Interfaces for handling events. Try using events/event handlers when possible.
+
+02:35 PM | 9th May, 2021:
+-------------------------
+Don't overdo abstractions. Don't overdo events, interfaces, design patterns. Don't take the ABC route if AC exists.
+
+04:49 PM | 11th May, 2021:
+--------------------------
+https://stackoverflow.com/questions/9380645/how-to-create-extension-method-on-generic-collection -> Extension methods for generic collection.
+
+08:59 PM | 11th May, 2021:
+--------------------------
+If you subscribe to an event, for example:
+	someClass.someEvent += someEventHandler
+multiple times, the event handler will be triggered multiple times. In my case, it got called continuously. So, be sure to unsubscribe to the event first:
+	someClass.someEvent -= someEventHandler
+So, if your code has the possibility of assigning an event handler to some event multiple times, it'd be wise to do the following:
+	someClass.someEvent -= someEventHandler
+	someClass.someEvent += someEventHandler
+back to back so you don't need to worry about multiple assignments.
+Be careful about assigning and event handler using a lambda expression or an anonymous method though.
+The following event handler assignment:
+	someClass.someEvent += (src, eventArgs)=>{//handler the event}
+cannot be reversed by the following code:
+	someClass.someEvent -= (src, eventArgs)=>{//handler the event}
+You must save a reference to the handler code and use the same reference to -= it away.
+
+Useful discussion: 
+https://stackoverflow.com/questions/183367/unsubscribe-anonymous-method-in-c-sharp
+https://stackoverflow.com/questions/1362204/how-to-remove-a-lambda-event-handler
+https://stackoverflow.com/questions/25190270/c-sharp-event-handler-is-called-multiple-times-when-event-is-raised-once
+https://stackoverflow.com/questions/25563518/why-cant-i-unsubscribe-from-an-event-using-a-lambda-expression/25564492#25564492
+
+
+09:29 PM | 11th May, 2021:
+--------------------------
+Retrieving the time series of companies' stocks is the slowest part of the screening process. Probably store the downloaded data to a file to be used in future?
+
+
+1:59 PM | 12th May, 2021:
+-------------------------
+Just what I wanted: https://tlc.thinkorswim.com/center/reference/Patterns/candlestick-patterns-library/bullish-only/MorningStar
+Precise mathematical definitions for candlestick patterns.
+
+03:19 PM | 12th May, 2021:
+--------------------------
+Neat library for technical analysis: ta-lib. Poor documentation. Ports available to Python and C#. C# port called TA-Lib.NETCore. No documentation.
+But can read source code to guess how to use its functions. For example, for morning star candlestick pattern recognition, see:
+https://github.com/hmG3/TA-Lib.NETCore/blob/master/src/TALib.NETCore/TACdl/TA_CdlMorningStar.cs
+The API is pretty old-fashioned and hectic. So, I'm gonna avoid using it for now.
+
+03:11 PM | 14th May, 2021:
+--------------------------
+The Parallel.ForEach() method really is powerful. Instead of downloading timeseries of companies' stocks serially in a separate thread, which I've been doing till now, I've decided to first use the parallel foreach method to download the timeseries and then do the screening computations on them - after all, the downloading part is the biggest time consuming part of the operation here. So, yesterday I tried the concept of downloading timeseries for a list of companies using a parallel foreach loop in a separate console application in C# and the results were very encouraging. The parallel version was roughly 4x faster than the non parallel version. So, I'm going through with it right now.
+Also, in multi-threading, use a dedicated lock object: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/lock-statement
+https://www.tomfosdick.com/archives/90525
+
+04:30 PM | 14th May, 2021:
+-------------------------
+Apparently, you get an ArgumentOutOfRangeException, not IndexOutOfRangeException if you access lists with bad indices in C#.
+
+12:11 AM | 15th May, 2021:
+--------------------------
+https://stackoverflow.com/questions/38764751/list-not-changed-outside-the-method
+
+10:51 PM | 16th May, 2021:
+--------------------------
+Adding elements in a listview rows individually for each row is so slow that for updating 9 columns in 481 rows hung the app. Instead, make a list/array of subitems for each row and add this list as a listitem as a single operation.
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.listbox.beginupdate?view=net-5.0 says "The preferred way to add multiple items to the ListBox is to use the AddRange method of the ListBox.ObjectCollection class (through the Items property of the ListBox). This enables you to add an array of items to the list in a single operation...."
+Oh, and adding items to any specific column by its "key" doesn't seem to work in C#. The process has to be a sequential addition of elements or must use a numeric index for selecting the appropriate column. There's only rant on this topic rather than a solution on the internet.
+
+12:17 PM | 17th May, 2021:
+--------------------------
+I didn't want to write this here but Visual Studio 2019 forced my hand. It's a disgrace compared to its predecessors. There. The interface is unbearably slow. Everything just keeps loading. The forms designer is anything but smooth. Sometimes the properties for a form's controls don't show. Sometimes it shows unrelated controls' properties no matter which control I select. Sometimes the form designer just doesn't open. Sometimes it shows god knows what error. In a nutshell, it makes me wanna quit programming. Visual Studio used to be the industry leader. Now, if people are having to put up with anything like I have, they're going to want to look for alternatives.
+
+08:28 PM | 20th May, 2021:
+--------------------------
+NepseAlpha has implemented Cloudflare protection. Now, the website detects selenium driven browsers and refuses to serve. Also, the data api seems to be locked down pretty hard. I couldn't get more than a couple of time series from it back to back. This started from some time today afternoon. I tried to bypass the detection for most of the day. But Cloudflare seem to be ahead of everyone.
+ref: https://stackoverflow.com/questions/53039551/selenium-webdriver-modifying-navigator-webdriver-flag-to-prevent-selenium-detec
+https://stackoverflow.com/questions/66301038/how-to-bypass-c-sharp-selenium-website-security-protection
+So, switching to systemxlite.com. Thanks to Suman for the recommendation.
+
+05:44 PM | 21st May, 2021:
+--------------------------
+Should've used DataGridView right from the beginning instead of listview. https://stackoverflow.com/questions/808588/editable-listview
+Use BindingList<T> instead of List<T> for binding a list of entries to a datagridview: https://stackoverflow.com/questions/14024893/binded-datagridview-to-listt-not-showing-data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------
+WEBPAGE SOURCE: (thx to https://stackoverflow.com/questions/23343191/copying-html-code-in-google-chromes-inspect-element)
+---------------------
+<html><head>
+
+		<title>Nepse Chart - Nepal Stock Exchange | Nepse Alpha</title>
+		<meta name="description" content="Nepse Alpha is a leading stock market portal in Nepal providing free live technical analysis chart of Nepal Stock Exchange (NEPSE CHART) powered by fully automated stock analysis tools including multilple timeframe charting of listed companies, automated technical analysis, floorsheet analysis, stock comparison dedicated to active traders and investors in Nepal.">
+		<meta name="keywords" content="nepse chart, nepse, share app, share portal, share ipo, nepal stock exchange, share market, share market nepal, dhitopatra nepal, share karobar,share bazar, technical analysis, fundamental analysis, quantative analysis, stock portfolio management, nepsealpha.com, profit, top gainers, top losers, turnover, kitta">
+		 <meta property="og:image" content="https://www.nepsealpha.com/images/nepsealpha_featuredimage.png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="628">
+		 <link rel="shortcut icon" href="/images/logo.jpg">
+
+		<!-- Fix for iOS Safari zooming bug -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="/widget/bootstrap4-iso.min.css">
+		<script type="text/javascript" src="/trading_view_stuff/charting_library/charting_library.js"></script>
+		<script type="text/javascript" src="/trading_view_stuff/datafeeds/udf/dist/polyfills.js"></script>
+		<script type="text/javascript" src="/trading_view_stuff/datafeeds/udf/dist/bundle.js"></script>
+
+        <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LBBQFT2KX1"></script>
+   		
+
+        </head><body style="margin:0px;" class=""><input type="hidden" name="isAdj" value="1" id="isAdjusted">
+        <input type="hidden" name="symbol" value="NEPSE" id="selectedsymbol">
+        <input type="hidden" name="theme" value="Light" id="theme">
+	    
+
+    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LBBQFT2KX1');
+</script>
+<style type="text/css">
+ .loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  margin: 100px auto auto auto;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes  spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.modal {
+  overflow-y:auto !important;
+}
+</style>
+
+
+
+
+	<div id="tv_chart_container"><iframe id="tradingview_40a73" name="tradingview_40a73" src="/trading_view_stuff/charting_library/en-tv-chart.635204e2.html#symbol=NEPSE&amp;interval=1D&amp;widgetbar=%7B%22details%22%3Afalse%2C%22watchlist%22%3Afalse%2C%22watchlist_settings%22%3A%7B%22default_symbols%22%3A%5B%5D%7D%7D&amp;timeFrames=%5B%7B%22text%22%3A%225y%22%2C%22resolution%22%3A%221W%22%7D%2C%7B%22text%22%3A%221y%22%2C%22resolution%22%3A%221W%22%7D%2C%7B%22text%22%3A%226m%22%2C%22resolution%22%3A%22120%22%7D%2C%7B%22text%22%3A%223m%22%2C%22resolution%22%3A%2260%22%7D%2C%7B%22text%22%3A%221m%22%2C%22resolution%22%3A%2230%22%7D%2C%7B%22text%22%3A%225d%22%2C%22resolution%22%3A%225%22%7D%2C%7B%22text%22%3A%221d%22%2C%22resolution%22%3A%221%22%7D%5D&amp;locale=en&amp;uid=tradingview_40a73&amp;clientId=0&amp;userId=0&amp;chartsStorageVer=1.0&amp;debug=false&amp;timezone=exchange&amp;theme=Light" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen="" style="display: block; width: 100%; height: 657px;"></iframe></div>
+	
+<div class="bootstrap4-iso">
+ <div class="modal" id="myModal" style="background: rgba(0,0,0,0.5);">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+      	<div class="modal-body">
+      		<div class="loader"></div>
+      	</div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade bd-example-modal-lg" id="siteNotice" role="dialog" style="background: rgba(0, 0, 0, 0.5); display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header" style="padding: 0px;">
+                    <button type="button" class="close" data-dismiss="modal" style="margin-right: 2px;">
+                    <span aria-hidden="true" style="font-size: 50px;">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="dynamic-content" style="padding: 0; margin: 0;">
+                	<a href="javascript::void()" onclick="openlogin();">
+                    	<img src="https://www.nepsealpha.com/images/live-chart-notice.jpeg" class="img-fluid" alt="">
+                	</a>
+                </div>
+            </div>
+       </div>
+</div> 
+<div class="modal" id="loginModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Free Login</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        
+       <form action="#" id="loginForm">
+       		<input type="hidden" name="_token" value="ZsbTbP9uxTGpHFSlmG7EfT2nrWYmSZ0AUgUKk4td">		    <div class="form-group">
+		      <label for="username">User name:</label>
+		      <input type="text" class="form-control" placeholder="Enter Username or email" name="username" required="">
+		    </div>
+		    <div class="form-group">
+		      <label for="pwd">Password:</label>
+		      <input type="password" class="form-control" placeholder="Enter password" name="password" required="">
+		    </div>
+		    <a href="https://www.nepsealpha.com/tradingusers/password/reset">Forgot password ?</a>
+		    <i id="loginValidation" class="text-danger"></i>
+		</form>
+		
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      	<button type="submit" class="btn btn-primary" style="float: left;" id="loginClick">Login</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="registerModal();">Free Register</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="registerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Free Register</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+
+       <form action="#" id="registerForm">
+       		<input type="hidden" name="_token" value="ZsbTbP9uxTGpHFSlmG7EfT2nrWYmSZ0AUgUKk4td">       		<div class="form-group">
+		      <label>Full Name:</label>
+		      <input type="text" class="form-control" placeholder="Enter Full name" name="full_name" required="">
+		    </div>
+		    <div class="form-group">
+		      <label>User name:</label>
+		      <input type="text" class="form-control" placeholder="Enter username" name="username" required="">
+		    </div>
+		    <i class="text-danger" id="usernameValidation"></i>
+		    <div class="form-group">
+		      <label>Password:</label>
+		      <input type="password" class="form-control" placeholder="Enter password" name="password" required="">
+		    </div>
+		    <div class="form-group">
+		      <label>Confirm Password:</label>
+		      <input type="password" class="form-control" placeholder="Confirm password" name="cpassword" required="">
+		      <i class="text-danger" id="passwordValidation"></i>
+		    </div>
+		    <div class="form-group">
+		      <label>Email:</label>
+		      <input type="email" class="form-control" placeholder="Enter email" name="email" required="">
+		    </div>
+		    <div class="form-group">
+		      <label>Contact Number: (Optional)</label>
+		      <input type="text" class="form-control" placeholder="Enter Contact Number" name="contact_no" required="">
+		    </div>
+		    <i class="text-danger" id="allError"></i>
+		    
+		 </form>
+
+		
+		</div>
+   	
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" id="submitRegUser">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+  
+</div>
+
+<script src="/widget/jquery.min.js"></script>
+<script src="/widget/bootstrap4.min.js"></script>
+<script type="text/javascript">
+	function getParameterByName(e) {
+	    e = e.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var t = new RegExp("[\\?&]" + e + "=([^&#]*)").exec(location.search);
+	    return null === t ? "" : decodeURIComponent(t[1].replace(/\+/g, " "));
+	}
+
+	 function detectScreenHeight() {
+	    return window.screen.height;
+	 }
+
+
+	 function nepseAlphaTradingChart(){
+
+
+		let symbol = document.getElementById('selectedsymbol').value;
+		let isAdjusted = document.getElementById('isAdjusted').value;
+		let baseUrl = `https://www.nepsealpha.com/trading/${isAdjusted}`;
+		return  (window.tvWidget = new TradingView.widget({
+	        debug: !1,
+	        fullscreen: !0,
+	        symbol: symbol,
+	        interval: "1D",
+	        timezone: "exchange",
+	        container_id: "tv_chart_container",
+	        datafeed: new Datafeeds.UDFCompatibleDatafeed(baseUrl,60000),
+	        library_path: "/trading_view_stuff/charting_library/",
+	        locale: getParameterByName("lang") || "en",
+	        disabled_features: ["use_localstorage_for_settings", "volume_force_overlay"],
+	        enabled_features: [""],
+	        	        overrides: { volumePaneSize: "small" },
+	        theme: document.getElementById('theme').value,
+	    }));
+
+	 }
+
+	const isLogin = '';
+	const userName = ''
+	const userEmail = ''
+</script>
+
+<script type="text/javascript">
+const _0x42cc=['<script\x20src=\x22/widget/trading-view.js\x22></','headerReady','#009688','#openMyportfolio','#dropbtn','chart','left','defaultcolor','Free\x20Login\x20to\x20save\x20chart\x20&\x20create\x20portfolio','click','9654jFrBhe','then','checked','close','MACD','black','background','innerHTML','7IoAAjL','622687ujquOk','html','<img\x20src=\x22/images/logo.jpg\x22\x20style=\x22width:\x20120px\x20!important;border:none;height:\x2040px;\x22>','white','defaultbg','getElementById','padding','#myPortfolio','#myPortfolio\x20.modal-dialog','10667yJpXdM','loginModal','DOMContentLoaded','\x0a\x09\x09\x20\x20\x20\x20\x09\x09<div\x20class=\x22group-wWM3zP_M\x22\x20style=\x22border:\x201px\x20solid\x0a\x09\x09\x20\x20\x20\x20\x09\x09\x09\x20red;\x22><div\x20class=\x22wrap-18oKCBRc\x22><div\x20class=\x22menu-16FRUKka\x20button-13wlLwhJ\x20apply-common-tooltip\x22\x20data-role=\x22button\x22><div\x20class=\x22wrap-18oKCBRc\x22><span>\x0a\x09\x09\x20\x20\x20\x20\x09\x09\x09<a\x20href=\x22/\x22\x20target=\x22_blank\x22\x20style=\x22color:\x20black;font-size:\x2018px;\x22\x20onclick=\x22return\x20confirm(\x27You\x20are\x20visiting\x20nepsealpha.com,\x20all\x20unsaved\x20changes\x20will\x20be\x20lost.\x27)\x22\x20id=\x22visit_website\x22>visit\x20website</a></span></div></div></div></div>\x0a\x09\x09\x20\x20\x20\x20\x09','#6EBC48','changeTheme','<div\x20class=\x22dropdown\x22>\x0a\x09\x09\x09\x09\x09\x20\x20<button\x20class=\x22dropbtn\x22\x20id=\x27dropbtn\x27\x20>Pocket\x20Portfolio</button>\x0a\x09\x09\x09\x09\x09\x20\x20\x20<input\x20id=\x27tooglecheckbox\x27\x20type=\x27checkbox\x27\x20style=\x27display:\x20none;\x27>\x0a\x09\x09\x09\x09\x09\x20\x20<div\x20class=\x22dropdown-content\x22\x20style=\x27top:\x2040px;position:\x20fixed\x27\x20id=\x27dropdown-content\x27>\x0a\x09\x09\x09\x09\x09\x20\x20<a\x20href=\x22#\x22\x20id=\x27openMyportfolio\x27>Portfolio</a>\x0a\x09\x09\x09\x09\x09\x20\x20<a\x20href=\x22#\x22\x20id=\x27logoutChart\x27>Logout\x20(','index','4010YCfjVw','find','#visit_website','submit','selectedsymbol','selectedcolor','Show\x20Adjusted','addEventListener','script>','cursor','value','#logoutChart','contents','508552NRGVwy','createStudy','#tv_chart_container\x20iframe','86dmYPPm','Show\x20Unadjusted','1171383BcpRYx','symbolExt','isAdjusted','histogram','offset','Free\x20Login','189132txoVIh','Show\x20Floorsheet','prop','createButton','right','title','#0094D9','#tooglecheckbox','style','Light','#loginModal','selectedbg','fail','bind','show','floorsheet','.wrap-3tiHesTk\x20div:nth-child(3)','nepseAlphaTradingChartVar','/tradingusers/portfolio','theme','113SOVWhF','Failed\x20To\x20load','<link\x20rel=\x22stylesheet\x22\x20href=\x22/widget/trading-view.css\x22>',')</a>\x0a\x09\x09\x09\x09\x09\x20\x20</div>\x0a\x09\x09\x09\x09\x09</div>','15px\x2015px','symbol','pointer','All\x20your\x20task\x20will\x20be\x20Erased\x20in\x20new\x20layout','css','Dark','append','type','color','onChartReady','1jTEeeO'];function _0x1c7a(_0x4be515,_0xd7fbf3){_0x4be515=_0x4be515-0xbf;let _0x42cc75=_0x42cc[_0x4be515];return _0x42cc75;}const _0x236d63=_0x1c7a;(function(_0x2a3e2e,_0x2b4f42){const _0x1f7e32=_0x1c7a;while(!![]){try{const _0x4f20d5=-parseInt(_0x1f7e32(0xe6))*parseInt(_0x1f7e32(0x112))+-parseInt(_0x1f7e32(0xfe))+parseInt(_0x1f7e32(0xf8))+-parseInt(_0x1f7e32(0xd5))*-parseInt(_0x1f7e32(0xc1))+-parseInt(_0x1f7e32(0xf6))*parseInt(_0x1f7e32(0xcc))+-parseInt(_0x1f7e32(0xde))*-parseInt(_0x1f7e32(0xd4))+parseInt(_0x1f7e32(0xf3));if(_0x4f20d5===_0x2b4f42)break;else _0x2a3e2e['push'](_0x2a3e2e['shift']());}catch(_0x1b9dae){_0x2a3e2e['push'](_0x2a3e2e['shift']());}}}(_0x42cc,0xdce51));function initOnReady(){const _0x15ac53=_0x1c7a;var _0x1b1c3c=nepseAlphaTradingChart();_0x1b1c3c[_0x15ac53(0xc0)](()=>{const _0x1a8c36=_0x15ac53;_0x1b1c3c[_0x1a8c36(0xc3)]()[_0x1a8c36(0xcd)](()=>{const _0x4e7173=_0x1a8c36;setTimeout(function(){const _0x229840=_0x1c7a;var _0x568ddd=$(_0x229840(0xf5))[_0x229840(0xf2)]()[_0x229840(0xe7)]('head');_0x568ddd[_0x229840(0x11c)](_0x229840(0x114)),_0x568ddd['append'](_0x229840(0xc2)+_0x229840(0xee));},0x1);let _0x13b209=document[_0x4e7173(0xda)](_0x4e7173(0xfa))[_0x4e7173(0xf0)];$(_0x4e7173(0xf5))[_0x4e7173(0xf2)]()[_0x4e7173(0xe7)](_0x4e7173(0x10e))[_0x4e7173(0x11c)](_0x4e7173(0xe1));detectScreenHeight()>0x320&&(_0x1b1c3c['chart']()[_0x4e7173(0xf4)]('Moving\x20Average\x20Exponential',!0x1,!0x1,[0x14,_0x4e7173(0xcf)],null,{'Plot.color':'#FF0000','Plot.linewidth':0x2}),_0x1b1c3c[_0x4e7173(0xc7)]()['createStudy'](_0x4e7173(0xd0),!0x1,!0x1,null,null,{'histogram.plottype':_0x4e7173(0xfb)}));if(_0x13b209=='1'){let _0x2c789c=_0x1b1c3c[_0x4e7173(0x101)]({'align':_0x4e7173(0xc8)});_0x2c789c['innerHTML']=_0x4e7173(0xf7),_0x2c789c[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x4e7173(0xd8),_0x2c789c[_0x4e7173(0x106)]['background']=_0x4e7173(0x104),_0x2c789c[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x2c789c[_0x4e7173(0x106)]['cursor']=_0x4e7173(0x118),_0x2c789c[_0x4e7173(0xed)](_0x4e7173(0xcb),function(){const _0x3cc686=_0x4e7173;document[_0x3cc686(0xda)]('isAdjusted')[_0x3cc686(0xf0)]=0x0,document[_0x3cc686(0xda)](_0x3cc686(0xea))[_0x3cc686(0xf0)]=_0x1b1c3c[_0x3cc686(0xc7)]()[_0x3cc686(0xf9)]()[_0x3cc686(0x117)],initOnReady();});}else{let _0x300d45=_0x1b1c3c[_0x4e7173(0x101)]({'align':_0x4e7173(0xc8)});_0x300d45[_0x4e7173(0xd3)]=_0x4e7173(0xec),_0x300d45[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x4e7173(0xd8),_0x300d45[_0x4e7173(0x106)][_0x4e7173(0xd2)]=_0x4e7173(0xe2),_0x300d45[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x300d45[_0x4e7173(0x106)][_0x4e7173(0xef)]=_0x4e7173(0x118),_0x300d45[_0x4e7173(0xed)](_0x4e7173(0xcb),function(){const _0x24982d=_0x4e7173;var _0x3bf731=_0x1b1c3c['chart']()[_0x24982d(0xf9)]();document[_0x24982d(0xda)]('isAdjusted')[_0x24982d(0xf0)]=0x1,document['getElementById'](_0x24982d(0xea))[_0x24982d(0xf0)]=_0x3bf731[_0x24982d(0x117)],initOnReady();});}var _0x35c716=_0x1b1c3c[_0x4e7173(0x101)]({'align':'left'}),_0x5b8a7d=_0x1b1c3c[_0x4e7173(0x101)]({'align':_0x4e7173(0xc8)});const _0x350aa2={'selectedbg':_0x4e7173(0xd1),'defaultbg':_0x4e7173(0xd8),'selectedcolor':_0x4e7173(0xd8),'defaultcolor':_0x4e7173(0xd1)};document[_0x4e7173(0xda)](_0x4e7173(0x111))[_0x4e7173(0xf0)]==_0x4e7173(0x11b)?(_0x5b8a7d[_0x4e7173(0x106)]['color']=_0x350aa2[_0x4e7173(0xeb)],_0x5b8a7d[_0x4e7173(0x106)][_0x4e7173(0xd2)]=_0x350aa2[_0x4e7173(0x109)],_0x35c716[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x350aa2[_0x4e7173(0xc9)],_0x35c716[_0x4e7173(0x106)][_0x4e7173(0xd2)]=_0x350aa2['defaultbg'],$(_0x4e7173(0xf5))[_0x4e7173(0xf2)]()[_0x4e7173(0xe7)]('#visit_website')[_0x4e7173(0x11a)]({'color':_0x4e7173(0xd8)})):(_0x35c716[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x350aa2[_0x4e7173(0xeb)],_0x35c716[_0x4e7173(0x106)]['background']=_0x350aa2['selectedbg'],_0x5b8a7d[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x350aa2[_0x4e7173(0xc9)],_0x5b8a7d[_0x4e7173(0x106)][_0x4e7173(0xd2)]=_0x350aa2[_0x4e7173(0xd9)],$(_0x4e7173(0xf5))[_0x4e7173(0xf2)]()['find'](_0x4e7173(0xe8))[_0x4e7173(0x11a)]({'color':_0x4e7173(0xd1)}));_0x35c716[_0x4e7173(0xd3)]='Light',_0x35c716[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x35c716[_0x4e7173(0x106)][_0x4e7173(0xef)]=_0x4e7173(0x118),_0x5b8a7d[_0x4e7173(0xd3)]='Dark',_0x5b8a7d['style'][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x5b8a7d[_0x4e7173(0x106)][_0x4e7173(0xef)]=_0x4e7173(0x118),_0x35c716[_0x4e7173(0xed)](_0x4e7173(0xcb),function(){const _0x2459f7=_0x4e7173;this[_0x2459f7(0x106)][_0x2459f7(0xbf)]=_0x350aa2[_0x2459f7(0xeb)],this[_0x2459f7(0x106)][_0x2459f7(0xd2)]=_0x350aa2[_0x2459f7(0x109)],_0x5b8a7d[_0x2459f7(0x106)][_0x2459f7(0xd2)]=_0x350aa2[_0x2459f7(0xd9)],_0x5b8a7d[_0x2459f7(0x106)]['color']=_0x350aa2[_0x2459f7(0xc9)],_0x1b1c3c[_0x2459f7(0xe3)]('Light'),document[_0x2459f7(0xda)](_0x2459f7(0x111))[_0x2459f7(0xf0)]=_0x2459f7(0x107),$(_0x2459f7(0xf5))[_0x2459f7(0xf2)]()[_0x2459f7(0xe7)]('#visit_website')[_0x2459f7(0x11a)]({'color':'black'});}),_0x5b8a7d[_0x4e7173(0xed)](_0x4e7173(0xcb),function(){const _0x267dca=_0x4e7173;this[_0x267dca(0x106)][_0x267dca(0xbf)]=_0x350aa2['selectedcolor'],this['style']['background']=_0x350aa2[_0x267dca(0x109)],_0x35c716[_0x267dca(0x106)][_0x267dca(0xd2)]=_0x350aa2['defaultbg'],_0x35c716['style'][_0x267dca(0xbf)]=_0x350aa2[_0x267dca(0xc9)],_0x1b1c3c[_0x267dca(0xe3)]('Dark'),document['getElementById'](_0x267dca(0x111))[_0x267dca(0xf0)]=_0x267dca(0x11b),$('#tv_chart_container\x20iframe')[_0x267dca(0xf2)]()['find']('#visit_website')[_0x267dca(0x11a)]({'color':_0x267dca(0xd8)});});let _0x315e6d=_0x1b1c3c['createButton']({'align':_0x4e7173(0xc8)});_0x315e6d[_0x4e7173(0xd3)]=_0x4e7173(0xff),_0x315e6d[_0x4e7173(0x106)][_0x4e7173(0xbf)]=_0x4e7173(0xd8),_0x315e6d[_0x4e7173(0x106)]['background']='#0094D9',_0x315e6d[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x315e6d[_0x4e7173(0x106)][_0x4e7173(0xef)]='pointer',_0x315e6d['id']=_0x4e7173(0x10d),_0x315e6d['addEventListener'](_0x4e7173(0xcb),function(){const _0x4ac091=_0x4e7173;let _0xc1a2a7=_0x1b1c3c[_0x4ac091(0xc7)]()[_0x4ac091(0xf9)]();if(_0xc1a2a7[_0x4ac091(0x11d)]==_0x4ac091(0xe5)){noDataForIndex();return;}openfloorsheet(_0xc1a2a7[_0x4ac091(0x117)]);});if(isLogin){let _0x2f0341=_0x1b1c3c[_0x4e7173(0x101)]({'align':_0x4e7173(0x102)});_0x2f0341[_0x4e7173(0xd3)]=_0x4e7173(0xe4)+userEmail+_0x4e7173(0x115),$('#tv_chart_container\x20iframe')[_0x4e7173(0xf2)]()[_0x4e7173(0xe7)](_0x4e7173(0xc5))['bind'](_0x4e7173(0xcb),function(){const _0x4f9c01=_0x4e7173;$(_0x4f9c01(0xdd))[_0x4f9c01(0xd6)](''),$['get'](_0x4f9c01(0x110),function(_0xfc6b35){const _0x25c60b=_0x4f9c01;$(_0x25c60b(0xdd))['html'](_0xfc6b35),$(_0x25c60b(0xdc))['modal'](_0x25c60b(0x10c));})[_0x4f9c01(0x10a)](function(){const _0x48e32d=_0x4f9c01;alert(_0x48e32d(0x113));}),_0x58e496();}),$(_0x4e7173(0xf5))['contents']()[_0x4e7173(0xe7)](_0x4e7173(0xf1))['bind']('click',function(){const _0x500d30=_0x4e7173;$('#logoutForm')[_0x500d30(0xe9)]();});function _0x58e496(){const _0x3bf381=_0x4e7173;let _0x185a60=$(_0x3bf381(0xf5))[_0x3bf381(0xf2)]()[_0x3bf381(0xe7)](_0x3bf381(0x105)),_0x99602e=$(_0x3bf381(0xf5))[_0x3bf381(0xf2)]()[_0x3bf381(0xe7)](_0x3bf381(0xc6)),_0x1d7cb8=$(_0x3bf381(0xf5))[_0x3bf381(0xf2)]()[_0x3bf381(0xe7)]('#dropdown-content'),_0x1f1f0d=_0x99602e[_0x3bf381(0xfc)]();_0x1d7cb8[_0x3bf381(0x11a)](_0x3bf381(0xc8),_0x1f1f0d[_0x3bf381(0xc8)]),_0x185a60[_0x3bf381(0x100)](_0x3bf381(0xce),!_0x185a60['prop'](_0x3bf381(0xce)));}$(_0x4e7173(0xf5))[_0x4e7173(0xf2)]()[_0x4e7173(0xe7)](_0x4e7173(0xc6))[_0x4e7173(0x10b)]('click',function(){_0x58e496();});}else{let _0x1dc350=_0x1b1c3c[_0x4e7173(0x101)]({'align':_0x4e7173(0x102)});_0x1dc350[_0x4e7173(0xd3)]=_0x4e7173(0xfd),_0x1dc350['setAttribute'](_0x4e7173(0x103),_0x4e7173(0xca)),_0x1dc350[_0x4e7173(0x106)]['color']='white',_0x1dc350[_0x4e7173(0x106)][_0x4e7173(0xd2)]='#673AB7',_0x1dc350[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x1dc350['id']=_0x4e7173(0xdf),_0x1dc350[_0x4e7173(0x106)][_0x4e7173(0xef)]=_0x4e7173(0x118),_0x1dc350['addEventListener'](_0x4e7173(0xcb),function(){const _0x5c5eb0=_0x4e7173;$(_0x5c5eb0(0x108))['modal'](_0x5c5eb0(0x10c));});}let _0x4be2e7=_0x1b1c3c[_0x4e7173(0x101)]({'align':'left'});_0x4be2e7[_0x4e7173(0xd3)]='Triple\x20Screen',_0x4be2e7['style'][_0x4e7173(0xbf)]=_0x4e7173(0xd8),_0x4be2e7[_0x4e7173(0x106)][_0x4e7173(0xd2)]=_0x4e7173(0xc4),_0x4be2e7[_0x4e7173(0x106)][_0x4e7173(0xdb)]=_0x4e7173(0x116),_0x4be2e7[_0x4e7173(0x106)][_0x4e7173(0xef)]=_0x4e7173(0x118),_0x4be2e7[_0x4e7173(0xed)]('click',function(){const _0x3dc950=_0x4e7173;let _0x5b9304=confirm(_0x3dc950(0x119));_0x5b9304&&(location['href']='/trading/chart_triple');});let _0x1b678d=_0x1b1c3c[_0x4e7173(0x101)]({'align':'right'});_0x1b678d[_0x4e7173(0xd3)]=_0x4e7173(0xd7),window[_0x4e7173(0x10f)]=_0x1b1c3c['chart']();});});}window[_0x236d63(0xed)](_0x236d63(0xe0),initOnReady,!0x1);
+</script>
+
+<script src="/highchart/stock/highstock.js"></script>
+<link rel="stylesheet" href="/bower_components/admin-lte/dist/css/adminlte.min.css">
+
+<link rel="stylesheet" href="/bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css">
+<script type="text/javascript">
+		$(function(){
+		$('#siteNotice').modal('show');
+
+		setTimeout(function(){
+
+			$('#siteNotice').modal('hide');
+
+		},40000);
+	});
+		function openlogin()
+	{
+		$('#siteNotice').modal('hide');
+		$('#loginModal').modal('show');
+
+	}
+	const floorsheet = {};
+
+
+		function appendHtml(html){
+
+			$('#myModal .modal-content').html('');
+			$('#myModal .modal-content').html(html);
+			$('#myModal').modal('show'); 
+			$('.modal').css('overflow-y', 'auto');
+
+		}
+
+			
+		function openfloorsheet(symbol){
+
+			if(floorsheet[symbol]){ 
+				appendHtml(floorsheet[symbol]);
+				return;
+			}
+
+			$.get(`/floorsheet_ajx/${symbol}/index`,function(response){
+				let html = response.html;
+				appendHtml(html);
+				floorsheet[symbol] = html;
+
+			});
+			
+		}
+
+		function noDataForIndex(){
+
+			let html = `<div class="modal-header bg-danger text-white">
+        <h4 class="modal-title">No Data</h4>
+        <button type="button" class="close" data-dismiss="modal" style='zoom: 1.5;color: white;'>&times;</button>
+      </div><div class="modal-body">
+       <h2>Data available only for individual Traded Stocks on recent trading day.</h2>
+      </div>`;
+      appendHtml(html);
+
+		}
+		$('#myModal').on('hidden.bs.modal', function () {
+
+		   $('#myModal .modal-content').html(`<div class="modal-body">
+		      		<div class="loader"></div>
+		      	</div>`);
+
+		});
+function registerModal(){
+
+
+	$('#loginModal').modal('hide');
+	$('#registerModal').modal('show');
+
+}
+
+
+function disableEnableBtn(el,text,bool){
+
+	el.prop('disabled', bool);
+	el.html(text);
+
+}
+
+$(document).on('click','#submitRegUser',function(){
+
+
+	var el = $(this);
+
+	let formdata = $('#registerForm').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+	disableEnableBtn(el,'Processing',true);
+    $.post('/tradingusers/validate_reg',formdata,function(response){
+
+
+    	if(!response.success){
+
+
+    		$(`#${response.id}`).text(response.error);
+    		disableEnableBtn(el,'Submit',false);
+    		return;
+    	}
+
+    	location.reload();
+
+
+
+
+    }).fail(function(){
+    	disableEnableBtn(el,'Submit',false);
+    	alert('Please Fill form properly.');
+
+    });
+
+
+});
+$(document).on('click','#loginClick',function(){
+
+
+	var el = $(this);
+	let formdata = $('#loginForm').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+	disableEnableBtn(el,'Loging',true);
+    $.post('/tradingusers/validate_login',formdata,function(response){
+
+
+    	if(!response.success){
+
+
+    		$(`#${response.id}`).text(response.error);
+    		disableEnableBtn(el,'Login',false);
+    		return;
+    	}
+
+    	location.reload();
+
+
+
+
+    }).fail(function(){
+    	disableEnableBtn(el,'Login',false);
+    	alert('The given data was invalid.');
+
+    });
+
+
+});
+//developer: SUMAN THAPA
+</script>
+
+</body></html>
+---------------------

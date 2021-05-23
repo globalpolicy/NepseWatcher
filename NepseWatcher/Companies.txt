@@ -1,0 +1,488 @@
+﻿1,10 % NMB DEBENTURE 2085(NMBD2085),Corporate Debenture
+2,10% Himalayan Bank Debenture 2083(HBLD83),Corporate Debenture
+3,10% Laxmi Bank Debenture 2086(LBLD86),Corporate Debenture
+4,10% Nabil Debenture 2082(NBLD82),Corporate Debenture
+5,10% Nepal SBI Bank Debenture 2086(SBIBD86),Corporate Debenture
+6,10% Prabhu Bank Debenture 2084 (PBLD84),Corporate Debenture
+7,10% Sunrise Debenture 2080(SRD80),Corporate Debenture
+9,10.25% Citizens Bank Debenture 2086(CIZBD86),Corporate Debenture
+10,10.25% GLOBAL IME BANK LTD. DEBENTURE 2080/81(GBD80/81),Corporate Debenture
+11,10.25% GLOBAL IME BANK LTD. DEBENTURE 2080/81(GBILD80/81),Corporate Debenture
+12,10.25% KBL Debenture 2086(KBLD86),Corporate Debenture
+13,10.25% Machhapuchhre Bank Debenture 2085(MBLD2085),Corporate Debenture
+14,10.25% NBBL Debenture 2085(NBBD2085),Corporate Debenture
+15,10.25% NIC Asia Debenture 2083/84(NICD83/84),Corporate Debenture
+16,10.25% Prabhu Bank Debenture 2086(PBLD86),Corporate Debenture
+17,10.25% SBL Debenture 2083(SBLD83),Corporate Debenture
+18,10.25% Sunrise Bank Debenture 2083(SRBLD83),Corporate Debenture
+19,10.35% Agricultural Bank Debenture 2083(ADBLD83),Corporate Debenture
+20,10.5 % NEPAL INVESTMENT DEBENTURE 2082(NIBD2082),Corporate Debenture
+21,10.50% SBL Debenture 2082(SBLD2082),Corporate Debenture
+22,11% NIC Asia Debenture 082/83(NICAD8283),Corporate Debenture
+23,12% ICFC Finance Limited Debenture 2083(ICFCD83),Corporate Debenture
+24,8% BOK Debenture 2079(BOKD2079),Corporate Debenture
+25,8% EBL Debenture 2078(EBLD2078),Corporate Debenture
+26,8.5% Nepal Investment Bank Debenture 2084(NIBD84),Corporate Debenture
+27,8.5% Sanima Debenture 2087(SBD87),Corporate Debenture
+28,8.5% SBL Debenture 2084(SBLD84),Corporate Debenture
+29,9.5% Manjushree Finance Limited Debenture 2085(MFLD85),Corporate Debenture
+30,Aarambha Chautari Laghubitta Bittiya Sanstha Limited(ACLBSL),Microfinance
+32,ADHIKHOLA LAGHUBITTA BITTIYA SANSTHA LIMITED(AKBSL),Microfinance
+33,ADHIKHOLA LAGHUBITTA BITTIYA SANSTHA LIMITED PROMOTER SHARE(AKBSLP),Promotor Share
+34,Agriculture Development Bank Limited(ADBL),Commercial Banks
+35,Ajod Insurance Limited(AIL),Non Life Insurance
+36,Ankhu Khola Jalvidhyut Company Ltd(AKJCL),Hydro Power
+37,Api Power Company Ltd.(API),Hydro Power
+38,Arambha Microfinance Bittiya Sanstha Ltd.(AMFI),Microfinance
+39,Arambha Microfinance Bittiya Sanstha Ltd. Promoter Share(AMFIPO),Promotor Share
+40,Arun Finance Limited(ARUN),Finance
+41,Arun Finance Limited Promoter Share(ARUNPO),Promotor Share
+42,Arun Kabeli Power Ltd.(AKPL),Hydro Power
+43,Arun Valley Hydropower Development Co. Ltd.(AHPC),Hydro Power
+44,Arun Vanaspati Udhyog Limited(AVU),Manufacturing And Processing
+45,Asha Laghubitta Bittiya Sanstha Ltd(ALBSL),Microfinance
+46,Asian Life Insurance Co. Limited(ALICL),Life Insurance
+47,Asian Life Insurance Co. Ltd Promoter Share(ALICLP),Promotor Share
+48,Bank of Kathmandu Limited Promoter Share(BOKLPO),Promotor Share
+49,Bank of Kathmandu Ltd.(BOKL),Commercial Banks
+50,Barun Hydropower Co. Ltd.(BARUN),Hydro Power
+51,Best Finance Co. Limited Promoter Share(BFCPO),Promotor Share
+52,Best Finance Company Ltd.(BFC),Finance
+53,Bhargav Bikash Bank Ltd.(BHBL),Development Banks
+54,Bhargav Bikash Bank Ltd. Promoter Share(BHBLPO),Promotor Share
+55,Birat Shoe Limited(BSL),Manufacturing And Processing
+56,Bishal Bazar Company Limited(BBC),Tradings
+57,Bishwa Bikas Bank Limited Promoter Share(BSBLPO),Promotor Share
+58,Bottlers Nepal (Balaju) Limited(BNL),Manufacturing And Processing
+59,Bottlers Nepal (Terai) Limited(BNT),Manufacturing And Processing
+60,Butwal Finance Limited Promoter Share(BFLPO),Promotor Share
+61,Butwal Power Company Limited(BPCL),Hydro Power
+62,Butwal Spinning Mills Limited(BSM),Manufacturing And Processing
+63,Capital Merchant Bank & Finance Co. Ltd.(CMB),Finance
+64,Capital Merchant Bank. & Fin. Promoter Share(CMBFLP),Promotor Share
+65,Central Finance Co. Ltd.(CFCL),Finance
+66,Central Finance Co. Ltd. Promoter Share(CFCLPO),Promotor Share
+67,Century Commercial Bank Ltd.(CCBL),Commercial Banks
+68,Century Commercial Bank Ltd. Promoter Share(CCBLPO),Promotor Share
+69,Chandragiri Hills Limited(CGH),Others
+70,Chandragiri Hills Limited(CHHL),Others
+71,Chhimek Laghubitta Bikas Bank Limited(CBBL),Microfinance
+72,Chhimek Laghubitta Bikas Bank Limited Promoter Share(CBBLPO),Promotor Share
+73,Chhyangdi Hydropower Ltd.(CHL),Hydro Power
+74,Chilime Hydropower Company Limited(CHCL),Hydro Power
+75,Citizen Bank International Limited(CZBIL),Commercial Banks
+76,Citizen Investment Trust(CIT),Others
+77,Citizens Bank Internatioal Limited Promoter Share(CZBILP),Promotor Share
+78,Citizens Mutual Fund -1(CMF1),Mutual Fund
+79,CITIZENS MUTUAL FUND 2(CMF2),Mutual Fund
+80,City Development Bank Limited(CDBL),Development Banks
+81,City Development Bank Ltd. Promoter(CDBLPO),Promotor Share
+82,City Express Finance Co. Limited(CEFL),Finance
+83,City Express Finance Co. Ltd. Promoter Share(CEFLPO),Promotor Share
+84,Civil Bank Ltd(CBL),Commercial Banks
+85,Civil Bank Ltd Promoter Share(CBLPO),Promotor Share
+86,Civil Laghubitta Bittiya Sanstha Ltd.(CLBSL),Microfinance
+87,Clean Village Microfinance Bittiya Sanstha Ltd. Promoter Share(CVMFPO),Promotor Share
+88,Corporate Development Bank Limited(CORBL),Development Banks
+89,Corporate Development Bank Ltd. Promoter Share(CORBLP),Promotor Share
+90,Crystal Finance Ltd.(CFL),Finance
+91,Deprosc Laghubitta Bittiya Sanstha Limited(DDBL),Microfinance
+92,Deprosc LaghuBitta Promoter Share(DDBLPO),Promotor Share
+93,Dev BikasBank Ltd. Promoter Share(DBBLPO),Promotor Share
+94,Deva Bikas Bank Limited(DBBL),Development Banks
+95,Dibyashwori Hydropower Ltd.(DHPL),Hydro Power
+96,Dish Media Network Pvt. Ltd.(DMNL),Others
+97,Everest Bank Limited(EBL),Commercial Banks
+98,Everest Bank Limited Con. Pref.(EBLCP),Preferred Stock
+99,Everest Bank Ltd.Promoter(EBLPO),Promotor Share
+100,Everest Insurance Co. Ltd.(EIC),Non Life Insurance
+101,Everest Insurance Co. Ltd. Promoter Share(EICPO),Promotor Share
+102,Excel Development Bank Ltd.(EDBL),Development Banks
+103,Excel Development Bank Ltd. Promoter Share(EDBLPO),Promotor Share
+104,Fewa Bikas Bank Limited(FBBL),Development Banks
+105,Fewa Bikas Bank Ltd. Promoter Share(FBBLPO),Promotor Share
+106,First Micro Finance Development Bank Ltd.(FMDBL),Microfinance
+107,First Micro Finance Development Bank Ltd. Promoter Share(FMDBLP),Promotor Share
+108,Fleur Himalayan Limited(FHL),Manufacturing And Processing
+109,Forward Community Microfinance Bittiya Sanstha Ltd Promoter Share(FOWADP),Promotor Share
+110,Forward Community Microfinance Bittiya Sanstha Ltd.(FOWAD),Microfinance
+111,Ganapati Microfinance Bittiya Sanstha Limited(GMFBS),Microfinance
+112,Gandaki Bikas Bank Limited(GDBL),Development Banks
+113,Gandaki Bikas Bank Limited Promoter Share(GDBLPO),Promotor Share
+114,Garima Bikas Bank Limited(GBBL),Development Banks
+115,Garima Bikas Bank Limited Promoter Share(GBBLPO),Promotor Share
+116,General Finance Limited Promoter Share(GFLPO),Promotor Share
+117,General Finance Ltd.(GFL),Finance
+118,General Insurance Company Nepal Ltd(GIC),Non Life Insurance
+119,Ghalemdi Hydro Limited(GHL),Hydro Power
+120,Ghodighoda Laghubitta Bittiya Sanstha Ltd.(GGBSL),Microfinance
+121,Global IME Bank Limited(GBIME),Commercial Banks
+122,Global IME Bank Ltd. Promoter Share(GBIMEP),Promotor Share
+123,Global IME Laghubitta Bittiya Sanstha Ltd.(GILB),Microfinance
+124,Global IME Laghubitta Bittiya Sanstha Ltd. Promoter Share(GILBPO),Promotor Share
+125,Global IME Samunnat Scheme-1(GIMES1),Mutual Fund
+126,Goodwill Finance Co. Ltd.(GFCL),Finance
+127,Goodwill Finance Co. Ltd. Promoter Share(GFCLPO),Promotor Share
+128,Gorakhkali Rubber Udhyog Limited(GRU),Manufacturing And Processing
+129,Grameen Bikas Laghubitta Bittiya Sanstha Ltd.(GBLBS),Microfinance
+130,Grameen Bikas Laghubitta Bittiya Sanstha Ltd. Promoter Share(GBLBSP),Promotor Share
+131,Green Development Bank Ltd.(GRDBL),Development Banks
+132,Green Development Bank Ltd. Promoter Share(GRDBLP),Promotor Share
+133,GreenLife Hydropower Limited(GLH),Hydro Power
+134,Guheshowori Merchant Bank & Finance Co. Ltd.(GMFIL),Finance
+135,Guheyshwori Merchant & Finance Ltd. Promoter Share(GMFILP),Promotor Share
+136,Gurans Laghubitta Bittiya Sanstha Limited(GLBSL),Microfinance
+137,Gurans Life Insurance Company Ltd.(GLICL),Life Insurance
+138,Guras Life Insurance Company Ltd. Promoter Share(GLICLP),Promotor Share
+139,Gurkhas Finance Ltd. Promoter Share(GUFLPO),Promotor Share
+140,Gurkhas Finance Ltd.(GUFL),Finance
+141,Hamro Bikas Bank Ltd.(HAMRO),Development Banks
+142,Hamro Bikas Bank Ltd. Promoter Share(HAMROP),Promotor Share
+143,Harisiddhi Brick And Tiles Limited(HBT),Manufacturing And Processing
+144,Hathway Finance Company Limited(HATH),Finance
+145,Hathway Finance Company Limited Promoter Share(HATHPO),Promotor Share
+146,Himal Dolakha Hydropower Company Limited(HDHPC),Hydro Power
+147,Himalaya Urja Bikas Company Limited(HURJA),Hydro Power
+148,Himalayan Bank Limited(HBL),Commercial Banks
+149,Himalayan Bank Ltd. Promoter(HBLPO),Promotor Share
+150,Himalayan Distillery Limited(HDL),Manufacturing And Processing
+151,Himalayan Finance Limited (Bittiya Sanstha)(HFL),Finance
+152,Himalayan General Insurance Co. Ltd(HGI),Non Life Insurance
+153,Himalayan General Insurance Co. Ltd Promoter Share(HGIPO),Promotor Share
+154,Himalayan Power Partner Ltd.(HPPL),Hydro Power
+155,Hydorelectricity Investment and Development Company Ltd(HIDCL),Others
+156,ICFC Finance Limited(ICFC),Finance
+157,ICFC Finance Limited Promotor Share(ICFCPO),Promotor Share
+158,ILFCO Microfinance Bittiya Sanstha Ltd. Promoter Share(ILFCMP),Promotor Share
+159,IME General Insurance Ltd. Promoter Share(IGIPO),Promotor Share
+160,IME General Insurance Ltd.(IGI),Non Life Insurance
+161,Infinity Laghubitta Bittiya Sanstha Limited(ILBS),Microfinance
+162,Janaki Finance Limited Promoter Share(JFLPO),Promotor Share
+163,Janaki Finance Ltd.(JFL),Finance
+164,Janasewi Laghubitta Bittiya Sanstha Ltd.(JANASEWI),Microfinance
+165,Janata Bank Nepal Ltd.(JBNL),Commercial Banks
+166,Janata Bank Nepal Ltd. Promoter Share(JBNLPO),Promotor Share
+167,Janautthan Samudayic Laghubitta Bikas Bank Ltd.(JSLBB),Microfinance
+168,Janautthan Samudayic Laghubitta Bikas Bank Ltd. Promoter Share(JSLBBP),Promotor Share
+169,Jebils Finance Ltd.(JEFL),Finance
+170,Jebils Finance Ltd. Promoter Share(JEFLPO),Promotor Share
+172,Joshi Hydropower Development Company Ltd(JOSHI),Hydro Power
+173,Jyoti Bikas Bank Limited(JBBL),Development Banks
+174,Jyoti Bikash Bank Ltd. Promoter Share(JBBLPO),Promotor Share
+175,Jyoti Life Insurance Ltd(JLI),Life Insurance
+176,Jyoti Sinning Mills Limited(JSM),Manufacturing And Processing
+177,Kabeli Bikas Bank Limited(KEBL),Development Banks
+178,Kabeli BIkas Bank Ltd. Promoter Share(KEBLPO),Promotor Share
+179,Kalika Microcredit Development Bank Ltd.(KMCDB),Microfinance
+180,Kalika Microcredit Development Bank Ltd. Promoter Share(KMCDBP),Promotor Share
+181,Kalika power Company Ltd(KPCL),Hydro Power
+182,Kamana Bikas Bank Limited(KMBL),Development Banks
+183,Kamana Bikas Bank Limited Promoter Share(KMBLPO),Promotor Share
+184,Kamana Sewa Bikas Bank Limited(KSBBL),Development Banks
+185,Kamana Sewa Bikas Bank Limited Promoter Share(KSBBLP),Promotor Share
+186,Kanchan Development Bank Limited(KADBL),Development Banks
+187,Kanchan Development Bank Limited Promoter Share(KADBLP),Promotor Share
+188,Kankai Bikas Bank Ltd.(KNBL),Development Banks
+189,Kankai Bikas Bank Ltd. Promoter Share(KNBLPO),Promotor Share
+190,Karnali Development Bank Limited(KRBL),Development Banks
+191,Karnali Development Bank Limited Promoter Share(KRBLPO),Promotor Share
+192,Kathmandu Finance Ltd. Promoter Share(KFLPO),Promotor Share
+193,Kathmandu Finance Ltd.(KFL),Finance
+194,Khanikhola Hydropower Co. Ltd.(KKHC),Hydro Power
+195,Kisan Lagubitta Bittiya Sanstha Limited(KLBSL),Microfinance
+196,Kisan Lagubitta Bittiya Sanstha Limited Promoter Share(KLBSLP),Promotor Share
+197,Kisan Microfinance Bittiya Sanstha Ltd.(KMFL),Microfinance
+198,Kisan Microfinance Bittiya Sanstha Ltd. Promoter Share(KMFLPO),Promotor Share
+199,Kuber Merchant Finance Limited(KMBSL),Finance
+200,Kuber Merchant Finance Ltd. Promoter Share(KMBSLP),Promotor Share
+201,Kumari Bank Limited(KBL),Commercial Banks
+202,Kumari Bank Limited Promotor Share(KBLPO),Promotor Share
+203,Kumari Equity Fund(KEF),Mutual Fund
+204,Lalitpur Finance Co. Ltd. Promoter Share(LFCPO),Promotor Share
+205,Lalitpur Finance Ltd.(LFC),Finance
+206,Laxmi Bank Limited(LBL),Commercial Banks
+207,Laxmi Bank Limited Promoter Share(LBLPO),Promotor Share
+208,Laxmi Equity Fund(LEMF),Mutual Fund
+209,Laxmi Laghubitta Bittiya Sanstha Ltd.(LLBS),Microfinance
+210,Laxmi Laghubitta Bittiya Sanstha Ltd. Promoter Share(LLBSPO),Promotor Share
+211,Laxmi Unnati Kosh(LUK),Mutual Fund
+212,Liberty Energy Company Limited(LEC),Hydro Power
+213,Life Insurance Co. Nepal(LICN),Life Insurance
+214,Life Insurance Co. Nepal Promoter Share(LICNPO),Promotor Share
+215,Lumbini Bikas Bank Ltd.(LBBL),Development Banks
+216,Lumbini Bikas Bank Ltd. Promoter Share(LBBLPO),Promotor Share
+217,Lumbini General Insurance Co. Ltd.(LGIL),Non Life Insurance
+218,Lumbini General Insurance Co. Ltd. Promoter Share(LGILPO),Promotor Share
+219,MachhaPuchhre Bank Limited Promotor Share(MBLPO),Promotor Share
+220,Machhapuchhre Bank Limited(MBL),Commercial Banks
+221,Mahalaxmi Bikas Bank Ltd.(MLBL),Development Banks
+222,Mahalxmi Bikas Bank Ltd. Promotor Share(MLBLPO),Promotor Share
+223,Mahila Lagubitta Bittiya Sanstha Limited (MLBSL),Microfinance
+224,Mahila Sahayatra Microfinance Bittiya Sanstha Ltd.(MSMBS),Microfinance
+225,Mahila Sahayatra Microfinance Bittiya Sanstha Ltd. Promoter Share(MSMBSP),Promotor Share
+226,Mahuli Samudayik Laghubitta Bittiya Sanstha Ltd Promoter(MSLBP),Promotor Share
+227,Mahuli Samudayik Laghubitta Bittiya Sanstha Ltd.(MSLB),Microfinance
+228,Malika Bikas Bank Limited(MDBL),Development Banks
+229,Malika Development Bank Limited Promoter Share(MDBLPO),Promotor Share
+230,Manjushree Finance Ltd.(MFIL),Finance
+231,Manjushree Finance Ltd. Promoter Share(MFILPO),Promotor Share
+232,Manushi Laghubitta Bittiya Sanstha Limited(Manushi),Microfinance
+233,Mega Bank Nepal Ltd.(MEGA),Commercial Banks
+234,Mega Bank Nepal Ltd. Promoter Share(MEGAPO),Promotor Share
+235,Mero Microfinance Bittiya Sanstha Ltd.(MERO),Microfinance
+236,Mero Microfinance Bittiya Sanstha Ltd. Promoter Share(MEROPO),Promotor Share
+237,Mirmire Microfinance Development Bank Ltd.(MMFDB),Microfinance
+238,Mirmire Microfinance Development Bank Ltd. Promoter Share(MMFDBP),Promotor Share
+239,Miteri Development Bank Limited(MDB),Development Banks
+240,Miteri Development Bank Ltd. Promoter Share(MDBPO),Promotor Share
+241,Mithila LaghuBitta Bikas Bank Ltd. Promoter Share(MLBBLP),Promotor Share
+242,Mithila LaghuBitta Bittiya Sanstha Limited(MLBBL),Microfinance
+243,Mountain Energy Nepal Limited(MEN),Hydro Power
+244,Mountain Hydro Nepal Limited(MHNL),Hydro Power
+245,Muktinath Bikas Bank Ltd.(MNBBL),Development Banks
+246,Muktinath Bikas Bank Ltd. Promoter Share(MNBBLP),Promotor Share
+247,Multipurpose Finance Company Limited(MPFL),Finance
+248,Multipurpose Finance Company Limited Promoter Share(MPFLPO),Promotor Share
+249,NABIL BALANCED FUND-2(NBF2),Mutual Fund
+250,Nabil Bank Limited(NABIL),Commercial Banks
+251,NABIL Bank Limited Promotor Share(NABILP),Promotor Share
+252,Nabil Equity Fund(NEF),Mutual Fund
+253,Nadep Laghubitta Bittiya Sanstha Ltd. Promoter Share(NADEPP),Promotor Share
+254,Nadep Laghubittiya bittya Sanstha Ltd.(NADEP),Microfinance
+255,NagBeli LaghuBitta Bikas Bank Ltd.(NBBL),Microfinance
+256,NagBeli LaghuBitta Bikas Bank Ltd. Promoter Share(NBBLPO),Promotor Share
+257,Narayani Development Bank Limited(NABBC),Development Banks
+258,National Hydro Power Company Limited(NHPC),Hydro Power
+259,National Life Insurance Co. Ltd.(NLICL),Life Insurance
+260,National Life Insurance Co. Ltd. Promoter Share(NLICLP),Promotor Share
+262,National Microfinance Bittiya Sanstha Ltd.(NMFBS),Microfinance
+263,National Microfinance Bittiya Sanstha Ltd. Promoter(NMFBSP),Promotor Share
+264,Naya Nepal Laghubitta Bikas Bank Ltd.(NNLB),Microfinance
+265,Naya Nepal Laghubitta Bikas Bank Ltd. Promoter Share(NNLBPO),Promotor Share
+266,Naya Nepal Laghubitta Bittiya Sanstha Limited(NNLBSL),Microfinance
+267,NB Insurance Co. Ltd. Promoter Share(NBILPO),Promotor Share
+268,NB Insurance Ltd.(NBIL),Insurance
+269,Neco Insurace Co. Ltd. Promoter(NILPO),Promotor Share
+270,Neco Insurance Co. Ltd.(NIL),Non Life Insurance
+271,Nepal Agro Laghubitta Bittiya Sanstha Limited(NAGRO),Microfinance
+272,Nepal Bangladesh Bank Limited(NBB),Commercial Banks
+273,Nepal Bangladesh Bank Limited Promoter Share(NBBPO),Promotor Share
+274,Nepal Bank Limited(NBL),Commercial Banks
+275,Nepal Bitumin And Barrel Udhyog Limited(NBBU),Manufacturing And Processing
+276,Nepal Community Development Bank Ltd.(NCDB),Development Banks
+277,Nepal Community Development Bank Ltd. Promoter Share(NCDBPO),Promotor Share
+278,Nepal Credit & Commercial Bank Ltd. Promoter Share(NCCBPO),Promotor Share
+279,Nepal Credit And Commercial Bank Limited(NCCB),Commercial Banks
+280,Nepal Doorsanchar Comapany Limited(NTC),Others
+281,Nepal Film Development Company Limited(NFD),Others
+282,Nepal Finance Ltd.(NFS),Finance
+283,Nepal Finance Ltd. Promoter Share(NFSPO),Promotor Share
+284,Nepal Grameen Bikas Bank Ltd. Promoter Share(NGBBLP),Promotor Share
+285,Nepal Hydro Developers Ltd.(NHDL),Hydro Power
+286,Nepal Infrastructure Bank Limited(NIFRA),Others
+287,Nepal Insurance Co. Ltd Promoter Share(NICLPO),Promotor Share
+288,Nepal Insurance Co. Ltd.(NICL),Non Life Insurance
+289,Nepal Investment Bank Limited(NIB),Commercial Banks
+290,Nepal Investment Bank Ltd. Promoter Share(NIBPO),Promotor Share
+291,Nepal Khadya Udhyog Limited(NKU),Manufacturing And Processing
+292,Nepal Life Insurance Co. Ltd.(NLIC),Life Insurance
+293,Nepal Life Insurance Co. Ltd. Promoter(NLICP),Promotor Share
+294,Nepal Lube Oil Limited(NLO),Manufacturing And Processing
+295,Nepal Reinsurance Company Limited(NRIC),Others
+296,Nepal SBI Bank Limited(SBI),Commercial Banks
+297,Nepal SBI Bank Ltd. Promoter Share(SBIPO),Promotor Share
+298,Nepal Seva Laghubitta Bittiya Sanstha Ltd.(NSEWA),Microfinance
+299,Nepal Seva Laghubitta Bittiya Sanstha Ltd. promoter share(NSEWAP),Promotor Share
+300,Nepal Share Markets Limited Promoter Share(NSMPO),Promotor Share
+301,Nepal Share Markets Ltd.(NSM),Finance
+302,Nepal Tading Limited(NTL),Tradings
+303,Nepal Vanaspati Ghee Udhyog Limited(NVG),Manufacturing And Processing
+304,Nepal Welfare Company Limited(NWC),Tradings
+305,Nerude Laghubita Bikas Bank Limited(NLBBL),Microfinance
+306,Nerude Laghubita Bikas Bank Limited Promoter Share(NLBBLP),Promotor Share
+307,Ngadi Group Power Ltd.(NGPL),Hydro Power
+308,NIBL Pragati Fund(NIBLPF),Mutual Fund
+309,NIBL Sahabhagita Fund(NIBLSF),Mutual Fund
+310,NIBL Samriddhi Fund 1(NIBSF1),Mutual Fund
+311,NIC Asia Balance Fund(NABF),Mutual Fund
+312,NIC Asia Balanced Fund(NICBF),Mutual Fund
+313,NIC Asia Bank Limted Promoter Share(NICAP),Promotor Share
+314,NIC Asia Bank Ltd.(NICA),Commercial Banks
+315,NIC Asia Debenture 2081/82(NICAD8182),Corporate Debenture
+316,NIC Asia Debenture 2085/86(NICAD 85/86),Corporate Debenture
+317,NIC Asia Growth Fund(NICGF),Mutual Fund
+318,NIC Asia Laghubitta Bittiya Sanstha Limited(NICALBSL),Microfinance
+319,NIC ASIA Laghubitta Bittiya Sanstha Limited(NICLBSL),Microfinance
+320,NIDC Development Bank Ltd.(NIDC),Development Banks
+321,NIDC Development Bank Ltd. Promoter Share(NIDCPO),Promotor Share
+322,Nirdhan Utthan Bank Limited Promoter Share(NUBLPO),Promotor Share
+323,Nirdhan Utthan Laghubitta Bittiya Sanstha Limited(NUBL),Microfinance
+324,NLG Insurance Company Ltd.(NLG),Non Life Insurance
+325,NLG Insurance Company Ltd. Promoter Share(NLGPO),Promotor Share
+326,NMB Microfinance Bittiya Sanstha Ltd.(NMBMF),Microfinance
+327,NMB Microfinance Bittiya Sanstha Ltd. Promoter Share(NMBMFP),Promotor Share
+328,NMB 50(NMB50),Mutual Fund
+329,NMB Bank Limited(NMB),Commercial Banks
+330,NMB Bank Limited Promoter Share(NMBPO),Promotor Share
+331,NMB Hybrid Fund L-1(NMBHF1),Mutual Fund
+332,NRN Infrastructure and Development Limited(Nrn),Others
+333,Nrn Laghubitta Bittiya Sanstha Limited(NRNLBSL),Microfinance
+334,NRN Lagubitta Bittiya Sanstha Limited(NLBSL),Microfinance
+335,NRN Lagubitta Bittiya Sanstha Limited Promoter Share(NLBSLP),Promotor Share
+336,Om Development Bank Ltd.(ODBL),Development Banks
+337,Om Development Bank Ltd. Promoter(ODBLPO),Promotor Share
+338,Oriental Hotels Limited(OHL),Hotels
+339,Panchakanya Mai Hydropower Ltd(PMHPL),Hydro Power
+340,Panchthar Power Compant Limited(PPCL),Hydro Power
+341,Paschimanchal Bikash Bank Ltd. Promoter Share(PDBLPO),Promotor Share
+342,Pashupati Development Bank Limited Promoter Share(PSDBLP),Promotor Share
+343,Pokhara Finance Company Limited Promoter Share(PFLPO),Promotor Share
+344,Pokhara Finance Ltd.(PFL),Finance
+345,Prabhu Bank Limited(PRVU),Commercial Banks
+346,Prabhu Bank Limited Promoter Share(PRVUPO),Promotor Share
+347,Prabhu Capital Limited(PRABHUCAP),Others
+348,Prabhu Finance Ltd. Promoter Share(PRFLPO),Promotor Share
+349,Prabhu Insurance Company Ltd. Promoter(PRINPO),Promotor Share
+350,Prabhu Insurance Ltd.(PRIN),Non Life Insurance
+351,Prabhu Life Insurance Limited(PLI),Life Insurance
+352,Premier Insurance Co. Ltd.(PIC),Non Life Insurance
+353,Premier Insurance Co. Ltd. Promoter Share(PICPO),Promotor Share
+354,Prime Commercial Bank Ltd.(PCBL),Commercial Banks
+355,Prime Commercial Bank Promoter Share(PCBLP),Promotor Share
+356,Prime Life Insurance Company Limited(PLIC),Life Insurance
+357,Prime Life Insurance Company Limited Promoter Share(PLICPO),Promotor Share
+358,Progressive Finance Limited Promoter Share(PROFLP),Promotor Share
+359,ProgressiveFinance Limited(PROFL),Finance
+360,Prudential Insurance Co. Ltd.(PICL),Non Life Insurance
+361,Prudential Insurance Co. Ltd. Promoter Share(PICLPO),Promotor Share
+362,Purnima Bikas Bank Ltd.(PURBL),Development Banks
+363,Purnima Bikas Bank Ltd. Promoter Share(PURBLP),Promotor Share
+364,Radhi Bidyut Company Ltd(RADHI),Hydro Power
+365,Raghupati Jute Mills Limited(RJM),Manufacturing And Processing
+366,Rairang Hydropower Development Company Ltd.(RRHP),Hydro Power
+367,Rastriya Beema Company Limited(RBCL),Non Life Insurance
+368,Rastriya Beema Company Limited Promoter Share(RBCLPO),Promotor Share
+369,RASUWAGADHI HYDROPOWER COMPANY LIMITED(RHPL),Hydro Power
+370,Reliable Microfinance Bittiya Sanstha Ltd.(RMFL),Microfinance
+371,Reliable Microfinance Bittiya Sanstha Ltd. Promoter Share(RMFLPO),Promotor Share
+372,Reliance Finance Ltd.(RLFL),Finance
+373,Reliance Finance Ltd. Promoter Share(RLFLPO),Promotor Share
+374,Reliance Life Insurance Limited(RLI),Life Insurance
+375,Ridi Hydropower Development Company Ltd.(RHPC),Hydro Power
+376,RMDC Laghubitta Bittiya Sanstha Ltd.(RMDC),Microfinance
+377,Royal Merchant Bank & Finance Co. Ltd. Promoter Share(RMBFPO),Promotor Share
+378,RSDC Laghubitta Bittiya Sanstha Ltd.(RSDC),Microfinance
+379,RSDC Laghubitta Bittiya Sanstha Ltd. Promoter Share(RSDCP),Promotor Share
+380,Ru Ru Jalbidhyut Pariyojana Limited(RURU),Hydro Power
+381,Rural Microfinance Development Centre Ltd. Promoter Share(RMDCPO),Promotor Share
+382,SABAIKO LAGHUBITTA BITTIYA SANSTHA LIMITED(SABSL),Microfinance
+383,Sadhana Laghubitta Bittiya Sanstha Limited(SDLBSL),Microfinance
+384,Sagarmatha Insurance Co. Ltd.(SIC),Non Life Insurance
+385,Sagarmatha Insurance Co. Ltd. Promoter Share(SICPO),Promotor Share
+386,Sahara Bikas Bank Ltd.(SHBL),Development Banks
+387,Sahara Bikas Bank Ltd. Promoter Share(SHBLPO),Promotor Share
+388,Sahayogi Bikas Bank Limited(SBBLJ),Development Banks
+389,Sahayogi Bikas Bank Ltd. Promoter Share(SBBLJP),Promotor Share
+390,Salt Trading Corporation(STC),Tradings
+391,Samata Gharelu Laghubitta Bittiya Sanstha Limited(SMATA),Microfinance
+392,Samata Gharelu Laghubitta Bittiya Sanstha Limited Promoter(SMATAP),Promotor Share
+393,Samjhana Finace Co. Ltd. Promoter Share(SFCPO),Promotor Share
+394,Samjhana Finance Co. Ltd.(SFC),Finance
+395,Samriddhi Finance Company Limited(SFCL),Finance
+396,Samriddhi Finance Company Limited Promoter Share(SFCLP),Promotor Share
+397,Samudayik Laghubitta Bittiya Sanstha Limited(SLBSL),Microfinance
+398,Sana Kisan Bikas Bank Ltd(SKBBL),Microfinance
+399,Sana Kisan Bikas Bank Ltd Promoter Share(SKBBLP),Promotor Share
+400,Sanima Bank Limited(SANIMA),Commercial Banks
+401,Sanima Bank Limited Debenture(SAND2085),Corporate Debenture
+402,Sanima Bank Ltd. Promoter Share(SBBLPO),Promotor Share
+403,Sanima Equity Fund(SAEF),Mutual Fund
+404,Sanima General Insurance Limited(SGI),Non Life Insurance
+405,Sanima Large Cap Fund(SLCF),Mutual Fund
+406,Sanima Mai Hydropower Ltd.(SHPC),Hydro Power
+407,SANJEN JALAVIDHYUT COMPANY LIMITED(SJCL),Hydro Power
+408,Saptakoshi Development Bank Ltd(SAPDBL),Development Banks
+409,Saptakoshi Development Bank Ltd Promoter Share(SAPDBLP),Promotor Share
+410,Sarathi Nepal Laghubitta Bittiya Sanstha Limited(SNLB),Microfinance
+411,Sarathi Nepal Laghubitta Bittiya Sanstha Limited Promoter Share(SNLBP),Promotor Share
+412,Shangrila Development Bank Ltd.(SADBL),Development Banks
+413,Shangrila Development Bank Ltd. Promoter Share(SADBLP),Promotor Share
+414,Shikhar Insurance Co. Ltd.(SICL),Non Life Insurance
+415,Shikhar Insurance Co. Ltd. Promoter(SICLPO),Promotor Share
+416,Shine Resunga Development Bank Ltd.(SHINE),Development Banks
+417,Shine Resunga Development Bank Ltd. Promoter Share(SHINEP),Promotor Share
+418,Shiva Shree Hydropower Ltd(SSHL),Hydro Power
+419,SHIVAM CEMENTS LTD(SHIVM),Manufacturing And Processing
+420,Shree Bhrikuti Pulp And Paper Limited(SBPP),Manufacturing And Processing
+421,Shree Investment & Finance Co. Ltd. Promoter Share(SIFCPO),Promotor Share
+422,Shree Investment Finance Co. Ltd.(SIFC),Finance
+423,Shree Ram Sugar Mills Limited(SRS),Manufacturing And Processing
+424,Shrijana Finance (Bittaya Sanstha)(SFFIL),Finance
+425,Shrijana Finance Ltd. Promoter Share(SFFILP),Promotor Share
+426,Siddhartha Bank Limited(SBL),Commercial Banks
+427,Siddhartha Bank Limited Promoter Share(SBLPO),Promotor Share
+428,Siddhartha Equity Fund(SEF),Mutual Fund
+429,Siddhartha Equity Orineted Scheme(SEOS),Mutual Fund
+430,Siddhartha Insurance Ltd.(SIL),Non Life Insurance
+431,Siddhartha Insurance Ltd. Promoter Share(SILPO),Promotor Share
+432,Siddhartha Investment Growth Scheme - 2(SIGS2),Mutual Fund
+433,Sindhu Bikas Bank Ltd. Promoter Share(SINDUP),Promotor Share
+434,Sindhu Bikash Bank Ltd(SINDU),Development Banks
+435,Singati Hydro Energy Limited(SHEL),Hydro Power
+436,Soaltee Hotel Limited(SHL),Hotels
+437,Sparsha Laghubitta Bittiya Sanstha Limited(SPARS),Microfinance
+438,Standard Chartered Bank Limited(SCB),Commercial Banks
+439,Standard Chartered Bank Limited Promoter Share(SCBPO),Promotor Share
+440,Summit Laghubitta Bittiya Sanstha Limited(SMFDB),Microfinance
+441,Summit Laghubitta Bittiya Sanstha Limited Promoter Share(SMFDBP),Promotor Share
+442,Sunrise Bank Limited(SRBL),Commercial Banks
+443,Sunrise Bank Ltd Promoter Share(SRBLPO),Promotor Share
+444,Sunrise First Mutual Fund(SFMF),Mutual Fund
+445,Support Microfinance Bittiya Sanstha Ltd.(SMB),Microfinance
+446,Support Microfinance Bittiya Sanstha Ltd. Promoter Share(SMBPO),Promotor Share
+447,Surya Life Insurance Co. Ltd. Promoter Share(SLICLP),Promotor Share
+448,Surya Life Insurance Company Limited(SLICL),Life Insurance
+449,SURYODAYA LAGHUBITTA BITTIYA SANSTHA LIMITED PROMOTER SHARE(SLBSP),Promotor Share
+450,Suryodaya Laghubitta Bittiya Sanstha Ltd.(SLBS),Microfinance
+451,Swabalamban Laghubitta Bittiya Sanstha Limited(SWBBL),Microfinance
+452,Swabalamban Laghubitta Bittiya Sanstha Limited Promoter Share(SWBBLP),Promotor Share
+453,Swabhimaan Laghubitta Bittiya Sanstha Limited(SMFBS),Microfinance
+454,Swadeshi Laghubitta Bittiya Sanstha Ltd.(SDESI),Microfinance
+455,Swarojgar Laghu Bitta Bikas Bank Ltd.(SLBBL),Microfinance
+456,Swarojgar Laghu Bitta Bikas Bank Ltd. Promoter Share(SLBBLP),Promotor Share
+457,Swastik Laghubitta Bittiya Sanstha Limited(Swastik),Microfinance
+458,Synergy Finance Ltd.(SYFL),Finance
+459,Synergy Finance Ltd. Promoter Share(SYFLPO),Promotor Share
+460,Synergy Power Development Ltd.(SPDL),Hydro Power
+461,Tamakoshi Hydropower Company Limited(THCL),Hydro Power
+462,Taragaon Regency Hotel Limited(TRH),Hotels
+463,Taragaon Regency Hotels Ltd. Preference Share(TRHPR),Preferred Stock
+464,Tinau Mission Development Bank Limited(TMDBL),Development Banks
+465,Tinau Mission Development Bank Limited Promoter Share(TMDBLP),Promotor Share
+466,Unilever Nepal Limited(UNL),Manufacturing And Processing
+467,Union Hydropower Limited(UNHPL),Hydro Power
+468,Unique Nepal Laghubitta Bittiya Sanstha Limited(Unique),Microfinance
+469,United Finance Company Limited Promoter Share(UFLPO),Promotor Share
+470,United Finance Ltd.(UFL),Finance
+471,United IDI Mardi RB Hydropower Limited.(UMRH),Hydro Power
+472,United Insurance Co. (Nepal) Ltd.(UIC),Non Life Insurance
+473,United Insurance Co. (Nepal) Ltd. Promoter Share(UICPO),Promotor Share
+474,United Modi Hydropower Ltd.(UMHL),Hydro Power
+475,UNIVERSAL POWER COMPANY LTD(UPCL),Hydro Power
+476,Unnati Laghubitta Bittiya Sanstha Ltd.(UMB),Microfinance
+477,Unnati Microfinance Bittya Shansha Ltd Promoter Share(UMBPO),Promotor Share
+478,Unnati Sahakarya Laghubitta Bittiya Sanstha Limited(USLB),Microfinance
+479,Unnati Sahakarya Laghubitta Bittiya Sanstha Limited Promoter Share(USLBP),Promotor Share
+480,Upper Tamakoshi Hydropower Ltd(UPPER),Hydro Power
+481,Vibor Bikas Bank Limited(VBBL),Development Banks
+482,Vibor Bikas Bank Limited Promoter Share(VBBLPO),Promotor Share
+483,Vibor Society Development Bank Limited(VSDBL),Development Banks
+484,Vibor Society Development Bank Limited Promoter Share(VSDBLP),Promotor Share
+485,Vijaya laghubitta Bittiya Sanstha Ltd.(VLBS),Microfinance
+486,Vijaya laghubitta Bittiya Sanstha Ltd. Promoter Share(VLBSPO),Promotor Share
+487,Womi Microfinance Bittiya Sanstha Ltd.(WOMI),Microfinance
+488,Womi Microfinance Bittiya Sanstha Ltd. Promoter Share(WOMIPO),Promotor Share
+489,World Merchant Banking & Finance Limited Promoter Share(WMBFPO),Promotor Share
+490,Yak And Yeti Hotel Limited(YHL),Hotels
+491,Yeti Development Bank Limited(YETI),Development Banks
+492,Yeti Development Bank Promotor Share(YETIPO),Promotor Share
