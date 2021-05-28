@@ -250,7 +250,7 @@ namespace NepseWatcher
                 {
                     //do nothing here. the company doesn't have the required number of data points for this moving average
                 }
-                catch(InvalidOperationException inopex)
+                catch (InvalidOperationException inopex)
                 {
                     //do nothing here. there's no timeseries data
                 }
@@ -321,10 +321,10 @@ namespace NepseWatcher
 
             #endregion
 
-           
+
 
         }
-       
+
         //outputs to companyAnalysisDict
         private void ROIAnalysis(ScreenerOptions screenerOptions)
         {
@@ -394,7 +394,7 @@ namespace NepseWatcher
 
                 OnScreeningProgressUpdated((int)(((float)cnt++ / (float)screenedListOfCompanySymbols.Count) * 100));
             }
-            OnScreeningProgressUpdated(100); //this is here because progress may not have reached a 100% as some companies may have been skipped
+            
         }
 
 
@@ -448,6 +448,40 @@ namespace NepseWatcher
                     OnScreeningProgressUpdated((int)(((float)++cntr / (float)companiesToFetch.Count) * 100));
                 }
             });
+
+            //since we're using the current datetimestamp to fetch timeseries, sometimes, systemxlite's API gives two observations for the current day
+            //i've found this when trying to fetch after 5:45 PM on a trading day. one entry is for right after the market closes(sometime around 3 PM) and the other is
+            //right at 5:45 PM, which happens to be the time at which all historic data seem to be recorded by systemxlite. so, check the last and the second last entries
+            //and use the latter if they're for the same day
+            foreach (string company in companiesTimeSeries.Keys.ToArray()) //directly iterating over companiesTimeSeries.Keys will not allow its entries to be modified inside the foreach loop. ToArray() creates a copy and hence is alright. ref:https://stackoverflow.com/questions/6177697/c-sharp-collection-was-modified-enumeration-operation-may-not-execute
+            {
+                string timeseries = companiesTimeSeries[company];
+                JToken json = JToken.Parse(timeseries);
+                if ((string)json["s"] != "ok") continue; //skip this company if error
+                try
+                {
+                    var t = json["t"].ToList();
+                    long lastTimestamp = (long)t[^1];
+                    long secondLastTimestamp = (long)t[^2];
+                    if (HelperClass.IsSameDate(lastTimestamp, secondLastTimestamp))
+                    {
+                        //remove the second last timestamp and corresponding closing, opening, high and low prices and volume
+                        t.RemoveAt(t.Count - 2);
+                        var c = json["c"].ToList(); c.RemoveAt(c.Count - 2);
+                        var o = json["o"].ToList(); o.RemoveAt(o.Count - 2);
+                        var h = json["h"].ToList(); h.RemoveAt(h.Count - 2);
+                        var l = json["l"].ToList(); l.RemoveAt(l.Count - 2);
+                        var v = json["v"].ToList(); v.RemoveAt(v.Count - 2);
+
+                        JObject newJson = new JObject(new JProperty("s", "ok"), new JProperty("t", t), new JProperty("c", c), new JProperty("o", o), new JProperty("h", h), new JProperty("l", l), new JProperty("v", v));
+                        companiesTimeSeries[company] = newJson.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    continue;
+                }
+            }
         }
 
         #endregion
@@ -455,6 +489,7 @@ namespace NepseWatcher
         #region Event handling methods
         protected virtual void OnScreeningCompleted()
         {
+            OnScreeningProgressUpdated(100); //this is here because progress may not have reached a 100% as some companies may have been skipped
             HelperClass.SaveTimeSeriesCache(companiesTimeSeries);
             if (ScreeningCompleted != null) //if non-zero number of subscribers to this event
                 ScreeningCompleted(this, new ScreenerEventArgs(screenedListOfCompanySymbols, companyAnalysisDict));

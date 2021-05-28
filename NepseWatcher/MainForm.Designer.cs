@@ -52,8 +52,6 @@ namespace NepseWatcher
             this.screenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.instructionsStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
@@ -117,7 +115,7 @@ namespace NepseWatcher
             this.listViewSymbols.Location = new System.Drawing.Point(9, 39);
             this.listViewSymbols.MultiSelect = false;
             this.listViewSymbols.Name = "listViewSymbols";
-            this.listViewSymbols.Size = new System.Drawing.Size(415, 133);
+            this.listViewSymbols.Size = new System.Drawing.Size(415, 125);
             this.listViewSymbols.TabIndex = 0;
             this.listViewSymbols.UseCompatibleStateImageBehavior = false;
             this.listViewSymbols.View = System.Windows.Forms.View.Details;
@@ -290,9 +288,7 @@ namespace NepseWatcher
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.instructionsStripMenuItem});
+            this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
@@ -300,20 +296,9 @@ namespace NepseWatcher
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(133, 6);
-            // 
-            // instructionsStripMenuItem
-            // 
-            this.instructionsStripMenuItem.Name = "instructionsStripMenuItem";
-            this.instructionsStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.instructionsStripMenuItem.Text = "&Instructions";
             // 
             // statusStrip1
             // 
@@ -383,7 +368,7 @@ namespace NepseWatcher
             this.panelFirstTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFirstTabPage.Location = new System.Drawing.Point(3, 3);
             this.panelFirstTabPage.Name = "panelFirstTabPage";
-            this.panelFirstTabPage.Size = new System.Drawing.Size(429, 178);
+            this.panelFirstTabPage.Size = new System.Drawing.Size(429, 170);
             this.panelFirstTabPage.TabIndex = 5;
             // 
             // tabControl1
@@ -396,7 +381,7 @@ namespace NepseWatcher
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(443, 212);
+            this.tabControl1.Size = new System.Drawing.Size(443, 204);
             this.tabControl1.TabIndex = 6;
             // 
             // tabPage1
@@ -405,7 +390,7 @@ namespace NepseWatcher
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(435, 184);
+            this.tabPage1.Size = new System.Drawing.Size(435, 176);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Overview";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -416,7 +401,7 @@ namespace NepseWatcher
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(435, 184);
+            this.tabPage2.Size = new System.Drawing.Size(435, 176);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Screened";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -429,7 +414,7 @@ namespace NepseWatcher
             this.panelSecondTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSecondTabPage.Location = new System.Drawing.Point(3, 3);
             this.panelSecondTabPage.Name = "panelSecondTabPage";
-            this.panelSecondTabPage.Size = new System.Drawing.Size(429, 178);
+            this.panelSecondTabPage.Size = new System.Drawing.Size(429, 170);
             this.panelSecondTabPage.TabIndex = 0;
             // 
             // textBoxFilterStringScreened
@@ -470,7 +455,7 @@ namespace NepseWatcher
             this.listViewScreened.Location = new System.Drawing.Point(9, 39);
             this.listViewScreened.MultiSelect = false;
             this.listViewScreened.Name = "listViewScreened";
-            this.listViewScreened.Size = new System.Drawing.Size(415, 133);
+            this.listViewScreened.Size = new System.Drawing.Size(415, 125);
             this.listViewScreened.TabIndex = 1;
             this.listViewScreened.UseCompatibleStateImageBehavior = false;
             this.listViewScreened.View = System.Windows.Forms.View.Details;
@@ -499,7 +484,7 @@ namespace NepseWatcher
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(435, 184);
+            this.tabPage3.Size = new System.Drawing.Size(435, 176);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Watchlist";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -512,7 +497,7 @@ namespace NepseWatcher
             this.dataGridViewWatchlist.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewWatchlist.Name = "dataGridViewWatchlist";
             this.dataGridViewWatchlist.RowTemplate.Height = 25;
-            this.dataGridViewWatchlist.Size = new System.Drawing.Size(429, 178);
+            this.dataGridViewWatchlist.Size = new System.Drawing.Size(429, 170);
             this.dataGridViewWatchlist.TabIndex = 0;
             this.dataGridViewWatchlist.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridViewWatchlist_MouseClick);
             // 
@@ -532,7 +517,7 @@ namespace NepseWatcher
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBoxLogs);
             this.splitContainer1.Size = new System.Drawing.Size(443, 395);
-            this.splitContainer1.SplitterDistance = 212;
+            this.splitContainer1.SplitterDistance = 204;
             this.splitContainer1.SplitterWidth = 8;
             this.splitContainer1.TabIndex = 7;
             // 
@@ -543,7 +528,7 @@ namespace NepseWatcher
             this.textBoxLogs.Multiline = true;
             this.textBoxLogs.Name = "textBoxLogs";
             this.textBoxLogs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLogs.Size = new System.Drawing.Size(443, 175);
+            this.textBoxLogs.Size = new System.Drawing.Size(443, 183);
             this.textBoxLogs.TabIndex = 0;
             // 
             // openFileDialog1
@@ -671,8 +656,6 @@ namespace NepseWatcher
         private System.Windows.Forms.ToolStripMenuItem sectorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem instructionsStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textBoxLogs;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;

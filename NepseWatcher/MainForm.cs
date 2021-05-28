@@ -141,6 +141,7 @@ namespace NepseWatcher
             openFileDialog1.RestoreDirectory = true;
             openFileDialog1.InitialDirectory = Environment.CurrentDirectory;
             openFileDialog1.Filter = "CSV File (*.csv)|*.csv";
+            openFileDialog1.FileName = "";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var openedList = HelperClass.GetWatchListEntries(openFileDialog1.FileName);
@@ -158,6 +159,7 @@ namespace NepseWatcher
             saveFileDialog1.InitialDirectory = Environment.CurrentDirectory;
             saveFileDialog1.Filter = "CSV File (*.csv)|*.csv";
             saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileName = "";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -402,6 +404,7 @@ namespace NepseWatcher
             saveFileDialog1.Title = "Export table";
             saveFileDialog1.InitialDirectory = Environment.CurrentDirectory;
             saveFileDialog1.Filter = "CSV File (*.csv)|*.csv";
+            saveFileDialog1.FileName = "Report";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try

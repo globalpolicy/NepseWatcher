@@ -267,5 +267,17 @@ namespace NepseWatcher
             return total * e / 100;
         }
 
+        /// <summary>
+        /// Checks if the two given unix timestamps correspond to the same date
+        /// </summary>
+        /// <param name="timestamp1"></param>
+        /// <param name="timestamp2"></param>
+        /// <returns></returns>
+        public static bool IsSameDate(long timestamp1, long timestamp2)
+        {
+            DateTime dt1 = DateTimeOffset.FromUnixTimeSeconds(timestamp1).Date;
+            DateTime dt2 = DateTimeOffset.FromUnixTimeSeconds(timestamp2).Date;
+            return dt1 == dt2;
+        }
     }
 }

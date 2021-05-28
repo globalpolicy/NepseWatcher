@@ -5,6 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>logo.ico</ApplicationIcon>
+    <Version>1.1.0</Version>
+    <Description>Screen and analyse NEPSE stocks.</Description>
+    <Copyright>© Copyright 2021 c0dew0rth</Copyright>
+    <PackageProjectUrl>github.com/globalpolicy/NepseWatcher</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

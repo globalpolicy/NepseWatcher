@@ -136,7 +136,11 @@ So, switching to systemxlite.com. Thanks to Suman for the recommendation.
 Should've used DataGridView right from the beginning instead of listview. https://stackoverflow.com/questions/808588/editable-listview
 Use BindingList<T> instead of List<T> for binding a list of entries to a datagridview: https://stackoverflow.com/questions/14024893/binded-datagridview-to-listt-not-showing-data
 
-
+09:51 AM | 28th May, 2021:
+--------------------------
+since we're using the current datetimestamp to fetch timeseries of companies' stocks, sometimes, systemxlite's API gives two observations for the current day.
+i've found this when trying to fetch after 5:45 PM on a trading day. one entry is for right after the market closes(sometime around 3 PM) and the other is
+right at 5:45 PM, which happens to be the time at which all historic data seem to be recorded by systemxlite. that's why, candlestick pattern filters always seemed to be giving 0 output these past couple days since I switched to systemxlite's API from nepsealpha. so, I've made it so that the program checks the last and the second last entries and removes the former from the time series if they're for the same day
 
 
 
